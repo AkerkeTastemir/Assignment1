@@ -9,14 +9,10 @@ public class Student extends Person {
     private int studentID = counter++;
     private ArrayList<Integer> grades = new ArrayList<>();
 
-    public Student(String name, String surname, int age, boolean gender) {
-        super(name, surname, age, gender);
-    }
-
-    public Student(String name, String surname, int age, boolean gender, ArrayList<Integer> grades) {
+    public Student(String name, String surname, int age, boolean gender, ArrayList<Integer> gradesList) {
         super(name, surname, age, gender);
 
-        setGrades(grades);
+        setGrades(gradesList);
     }
 
     public void addGrade(int grade) {
@@ -26,8 +22,7 @@ public class Student extends Person {
     public double calculateGPA() {
         double sum = 0;
 
-        for (int i = 0; i < grades.size(); i++) {
-            int grade = grades.get(i);
+        for (int grade : grades) {
             sum += grade;
         }
 
@@ -36,30 +31,37 @@ public class Student extends Person {
 
     @Override
     public String toString() {
+
         return super.toString() + ", I am a student with ID " + getStudentID();
     }
 
     public static int getCounter() {
+
         return counter;
     }
 
     public static void setCounter(int counter) {
+
         Student.counter = counter;
     }
 
     public int getStudentID() {
+
         return studentID;
     }
 
     public void setStudentID(int studentID) {
+
         this.studentID = studentID;
     }
 
     public ArrayList<Integer> getGrades() {
+
         return grades;
     }
 
     public void setGrades(ArrayList<Integer> grades) {
+
         this.grades = grades;
     }
 }

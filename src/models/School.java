@@ -13,7 +13,7 @@ public class School {
     @Override
     public String toString() {
 
-        String membersString = "";
+        String membersString = "All school members:\n";
 
         for (int i = 0; i < members.size(); i++) {
 

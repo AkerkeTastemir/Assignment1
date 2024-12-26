@@ -26,17 +26,20 @@ public class Main {
             int age = scanner.nextInt();
             boolean gender = scanner.next().equals("Male");
 
-            String[] grades = scanner.nextLine().split(" ");
             ArrayList<Integer> gradesList = new ArrayList<>();
 
-            for (int i = 1; i < grades.length; i++) {
-                gradesList.add(Integer.parseInt(grades[i]));
+            while (scanner.hasNextInt()){
+                int grade = scanner.nextInt();
+                gradesList.add(grade);
             }
 
             Student student = new Student(name, surname, age, gender, gradesList);
             school.addMember(student);
 
-            System.out.println(student.calculateGPA());
+            double gpa = student.calculateGPA();
+
+            System.out.println(student);
+            System.out.println("GPA: " + gpa);
 
         }
 
@@ -61,9 +64,11 @@ public class Main {
             school.addMember(teacher);
 
             if (teacher.getAge() > 10) {
-                teacher.giveRaise(25);
-                System.out.println(teacher.getSalary());
+                teacher.giveRaise(10);
             }
+
+            System.out.println(teacher);
+            System.out.println("My salary: " + teacher.getSalary());
 
         }
 

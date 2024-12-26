@@ -13,7 +13,6 @@ public class Person {
         setAge(age);
         setGender(gender);
     }
-
     @Override
     public String toString() {
         String genderName = "";
